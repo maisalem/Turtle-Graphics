@@ -45,8 +45,11 @@ public class TurtleSoup {
      */
     public static double calculateRegularPolygonAngle(int sides) {
        
+    	/*sum of angles in a regular polygon is (sides-2)*180
+    	therefore in regular polygon where all angles are equal, one angle will be: (sides-2)*180.0/sides  
+    	*/
         return (sides-2)*180.0/sides;
-       // throw new RuntimeException("implement me!");
+       
     }
 
     /**
