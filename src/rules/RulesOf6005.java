@@ -35,24 +35,26 @@ public class RulesOf6005 {
     public static boolean mayUseCodeInAssignment(boolean writtenByYourself,
             boolean availableToOthers, boolean writtenAsCourseWork,
             boolean citingYourSource, boolean implementationRequired) {
-        
-        // TODO: Fill in this method, then remove the exception
-        if(writtenByYourself == true && 
-           availableToOthers == false && 
-           writtenAsCourseWork == true &&
-           citingYourSource == true &&
-           implementationRequired == true
-           )
-        {
-            return true;
-        }
-        else
-        {
+       /*
+        * •	if the code is not written by the student, it must satisfy three conditions, and the variables writtenAsCourseWork, availableToOthers, and citingYourSource  must be true
+        * •	if the code is written by the student,  it is exempted from the previous three conditions
+        * •	and in both cases it must satisfy the requirements and the features expected from the code, therefore the variable implementationRequired must be true
+        */
+    	if (implementationRequired == true) {
+            if (writtenByYourself == true) {
+                return true;
+            } else {
+                if (availableToOthers == true && writtenAsCourseWork == true && citingYourSource == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
             return false;
         }
-        //throw new RuntimeException("implement me!");
-    }
-    
+	}
+
     /**
      * Main method of the class.
      * 
