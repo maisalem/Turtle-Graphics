@@ -110,11 +110,18 @@ public class TurtleSoup {
      */
     public static double calculateHeadingToPoint(double currentHeading, int currentX, int currentY,
                                                  int targetX, int targetY) {
-        double rise = targetY - currentY;
-        double run = targetX - currentX;
-        double angle = Math.atan(run/rise)*360/(2*Math.PI) - currentHeading;
-        return angle < 0.0 ? 360.0 + angle: angle;
-        //throw new RuntimeException("implement me!");
+    	/*atan: 
+    	take in consideration the sign and therefore avoid the information loss 
+        as tan^-1 (5/5)=tan^-1 (-5/5)=45
+    	*/  	
+    	double OppisiteSide = targetX - currentX;
+    	double AdjacentSide = targetY - currentY;
+       double angle = Math.atan(OppisiteSide/AdjacentSide)- currentHeading;
+       if (angle<0.0)
+             return (angle +180);
+                     else
+            return angle;   
+
     }
 
     /**
